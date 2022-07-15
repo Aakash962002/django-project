@@ -1,0 +1,65 @@
+{% extends 'dashboard/index.html' %} {% block content %}
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Add CrudOpr</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+              <a href="{% url 'crud_opr_list' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">CrudOpr</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-info">
+          <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="card-body">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">
+                  {{ form.name.label }}
+                </label>
+                <div class="col-sm-10">{{ form.name }}</div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">
+                  {{ form.email.label }}
+                </label>
+                <div class="col-sm-10">{{ form.email }}</div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">
+                  {{ form.password.label }}
+                </label>
+                <div class="col-sm-10">{{ form.password }}</div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleInputFile" class="col-sm-2 col-form-label">
+                  {{ form.photo.label }}
+                </label>
+                <div class="col-sm-10">{{ form.photo }}</div>
+              </div>
+            </div>
+            {{form.errors}}
+            <div class="card-footer">
+              <button type="submit" class="btn btn-info">Sign in</button>
+              <button type="submit" class="btn btn-default float-right">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

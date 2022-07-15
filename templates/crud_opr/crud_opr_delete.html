@@ -1,0 +1,11 @@
+{% extends 'dashboard/index.html' %} {% block content %}
+<div class="content-wrapper">
+  <h2 class="form-title">Delete CrudOpr</h2>
+  <form action="{% url 'crud_opr_delete' item.id %}" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ item.name }}"?</p>
+    <input type="submit" value="Confirm" />
+    <a href="{% url 'crud_opr_list' %}">Cancel</a>
+  </form>
+</div>
+  {% endblock %}
